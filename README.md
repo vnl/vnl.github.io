@@ -2,7 +2,7 @@
 
 An experimental page layout concept with a developer/designer theme and a special effect.
 
-![Developer/Designer Page Layout Concept 800x600](https://tympanus.net/codrops/wp-content/uploads/2017/04/DeveloperDesignerPageLayout_800x600.jpg)
+All credit to CoDrops where I found this article and used it for my learning.
 
 [Article on Codrops](https://tympanus.net/codrops/?p=30725)
 
