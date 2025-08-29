@@ -3,19 +3,25 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#000000">
+		<meta property="og:title" content="Vivian Lobo - Software Engineer">
+		<meta property="og:description" content="Software Engineer specializing in C++ and C#. Portfolio showcasing innovative web animations and coding projects.">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://vivianlobo.com">
 		<title>Vivian Lobo</title>
-		<meta name="description" content="This space is going to be a blog, travel diary, a portfolio of my code/work/tips" />
-		<meta name="keywords" content="template, page layout, concept, developer, designer, portfolio, effect, animation, css, javascript" />
+		<meta name="description" content="Vivian Lobo - Software Engineer specializing in C++ and C#. Portfolio showcasing innovative web animations, coding projects, and professional experience." />
+		<meta name="keywords" content="Vivian Lobo, Software Engineer, C++, C#, Developer, Portfolio, Animation, Web Development, Programming" />
 		<meta name="author" content="Vivian" />
 		<link rel="shortcut icon" href="favicon.ico">
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500|Roboto+Mono" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/pieces.css" />
-		<link rel="stylesheet" type="text/css" href="sponsor/pater.css" />
+		<link rel="stylesheet" type="text/css" href="sponsor/expertise.css" />
 		<link rel="stylesheet" type="text/css" href="css/monosocialicons.css"/>
-		<script async defer src="https://tianji.vivianlobo.dev/tracker.js" data-website-id="cm61bli3j0001se1ngi12svh5"></script>
-		<script async defer src="https://tianji.deathstar.tech/tracker.js" data-website-id="cm61bli3j0001se1ngi12svh5"></script>
+		<!-- Analytics temporarily disabled due to DNS issues -->
+		<!-- <script async defer src="https://tianji.vivianlobo.dev/tracker.js" data-website-id="cm61bli3j0001se1ngi12svh5"></script> -->
+		<!-- <script async defer src="https://tianji.deathstar.tech/tracker.js" data-website-id="cm61bli3j0001se1ngi12svh5"></script> -->
 		<script>document.documentElement.className = 'js';</script>
 	</head>
 	<body>
@@ -46,24 +52,31 @@
 						<h2 class="title">
 							<span class="title__inner mode mode--design" data-switch data-glitch>Vivian Lobo</span>
 						</h2>
-						
+						<button class="btn btn--menu mode mode--design" data-switch data-glitch>
+							<svg class="icon icon--menu">
+								<use xlink:href="#icon-menu"></use>
+							</svg>
+							<svg class="icon icon--menu-alt">
+								<use xlink:href="#icon-menu-alt"></use>
+							</svg>
+						</button>
 					</div>
 					<div class="menu">
 						<ul class="menu__inner">
-							<li class="menu__item"><a class="menu__link" href="https://vivianlobo.com/blog/" target="_blank" data-switch>Blog</a></li>
-							<li class="menu__item"><a class="menu__link" href="https://plus.google.com/u/0/+VivianLobo7" target="_blank" data-switch>Google+</a></li>
-							<li class="menu__item"><a class="menu__link" href="https://www.linkedin.com/in/lobovivian/" target="_blank" data-switch>linkedIn</a></li>
-							<li class="menu__item"><a class="menu__link" href="https://twitter.com/VivianLobo7" target="_blank" data-switch>Twitter</a></li>
-							<li class="menu__item"><a class="menu__link" href="https://www.facebook.com/vivian.lobo" target="_blank" data-switch>Facebook</a></li>
+							<li class="menu__item"><a class="menu__link" href="https://vivianlobo.com/blog/" target="_blank" rel="noopener noreferrer" data-switch>Blog</a></li>
+							<li class="menu__item"><a class="menu__link" href="https://www.linkedin.com/in/lobovivian/" target="_blank" rel="noopener noreferrer" data-switch>LinkedIn</a></li>
+							<li class="menu__item"><a class="menu__link" href="https://x.com/VivianLobo7" target="_blank" rel="noopener noreferrer" data-switch>X</a></li>
+							<li class="menu__item"><a class="menu__link" href="https://bsky.app/profile/vivianlobo.bsky.social" target="_blank" rel="noopener noreferrer" data-switch>Bluesky</a></li>
+							<li class="menu__item"><a class="menu__link" href="https://www.threads.com/@vivian5486" target="_blank" rel="noopener noreferrer" data-switch>Threads</a></li>
 						</ul>
 					</div>
 					<div class="menu menu--code">
 						<ul class="menu__inner">
-							<li class="menu__item"><a class="menu__link" href="http://stackoverflow.com/users/1006821/vivian-lobo" target="_blank" data-switch>On Coding</a></li>
+							<li class="menu__item"><a class="menu__link" href="http://stackoverflow.com/users/1006821/vivian-lobo" target="_blank" rel="noopener noreferrer" data-switch>On Coding</a></li>
 							<li class="menu__item"><a class="menu__link" data-switch>Experiments</a></li>
 							<li class="menu__item"><a class="menu__link" data-switch>Current Projects</a></li>
 							<li class="menu__item"><a class="menu__link" data-switch>Tutorials</a></li>
-							<li class="menu__item"><a class="menu__link" href="https://github.com/vnl" target="_blank" data-switch>> Find me on GitHub</a></li>
+							<li class="menu__item"><a class="menu__link" href="https://github.com/vnl" target="_blank" rel="noopener noreferrer" data-switch>> Find me on GitHub</a></li>
 						</ul>
 					</div>
 					<div class="content__bottom">
@@ -75,12 +88,12 @@
 							<a class="contact-link mode mode--design" href="mailto:vivian@vivianlobo.com" data-switch data-glitch>Work with me</a>
 						</div>
 					</div>
-					<!-- Sponsor -->
-					<a class="pater mode mode--design" href="">
-						<img src="sponsor/hired.png" class="pater__img" />
-						<h2 class="pater__title" aria-label="Hire">​Software Engineer<br> Working on C++ and C#</h2>
-						<p class="pater__desc">Always looking for new projects and exciting ideas to work on. Give me a shout anytime.</p>
-					</a>
+					<!-- Expertise -->
+					<div class="expertise mode mode--design">
+						<img src="sponsor/logo.png" class="expertise__img" alt="Professional expertise" />
+						<h2 class="expertise__title" aria-label="Expertise">Solutions Architect<br> Observability and web & mobile apps</h2>
+						<p class="expertise__desc">Always looking for new projects and exciting ideas to work on. Give me a shout anytime.</p>
+					</div>
 				</div><!-- /content__inner-->
 			</div><!-- /content -->
 			<div class="loading"></div>
