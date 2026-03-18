@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Used Up — Track What Matters</title>
+  <meta name="description" content="Used Up is a mobile app for tracking prepaid resources and usage goals. Always know what's left.">
+  <link rel="canonical" href="https://vivianlobo.com/used-up/">
+  <meta property="og:title" content="Used Up — Track What Matters">
+  <meta property="og:description" content="A mobile app for tracking prepaid resources and usage goals. Always know what's left.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vivianlobo.com/used-up/">
+  <meta property="og:image" content="https://vivianlobo.com/used-up/screenshots/home.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #000;
+      color: #585656;
+      font-family: 'Roboto Mono', monospace;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; }
+
+    /* ── nav ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      border-bottom: 1px solid #111;
+    }
+    .nav-back { font-size: 11px; color: #585656; letter-spacing: 1px; }
+    .nav-back:hover { color: #6dcc9e; }
+    .nav-title { font-size: 11px; color: #6dcc9e; letter-spacing: 3px; }
+
+    /* ── hero ── */
+    .hero {
+      text-align: center;
+      padding: 72px 24px 56px;
+      border-bottom: 1px solid #111;
+    }
+    .hero-name {
+      font-size: clamp(36px, 6vw, 64px);
+      color: #fff;
+      letter-spacing: -1px;
+      font-weight: 700;
+    }
+    .hero-tagline {
+      margin-top: 16px;
+      font-size: 13px;
+      color: #585656;
+      letter-spacing: 2px;
+      line-height: 1.8;
+    }
+    .hero-badge {
+      display: inline-block;
+      margin-top: 32px;
+      border: 1px solid #333;
+      border-radius: 3px;
+      padding: 12px 24px;
+      font-size: 11px;
+      color: #444;
+      letter-spacing: 2px;
+    }
+    .hero-badge-sub {
+      margin-top: 10px;
+      font-size: 9px;
+      color: #333;
+      letter-spacing: 1px;
+    }
+
+    /* ── screenshots ── */
+    .screenshots {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 56px 48px;
+      border-bottom: 1px solid #111;
+    }
+    .screenshots img {
+      width: 28%;
+      max-width: 220px;
+      border-radius: 16px;
+      display: block;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    }
+
+    /* ── features ── */
+    .features {
+      padding: 56px 48px;
+      border-bottom: 1px solid #111;
+    }
+    .features-label {
+      font-size: 9px;
+      color: #333;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .feature-item {
+      border: 1px solid #1a1a1a;
+      border-radius: 3px;
+      padding: 16px;
+    }
+    .feature-title {
+      font-size: 11px;
+      color: #6dcc9e;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .feature-desc {
+      font-size: 10px;
+      color: #484545;
+      line-height: 1.6;
+    }
+
+    /* ── footer ── */
+    footer {
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9px;
+      color: #333;
+      letter-spacing: 1px;
+    }
+    footer a { color: #585656; }
+    footer a:hover { color: #6dcc9e; }
+
+    /* ── responsive ── */
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .hero { padding: 48px 20px 40px; }
+      .screenshots {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+      }
+      .screenshots img { width: 80%; max-width: 300px; }
+      .features { padding: 40px 20px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-back" href="https://vivianlobo.com">← vivianlobo.com</a>
+    <span class="nav-title">used-up</span>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-name">used-up</div>
+    <div class="hero-tagline">
+      track what matters.<br>
+      always know what's left.
+    </div>
+    <div>
+      <div class="hero-badge">coming soon on android &amp; ios</div>
+      <div class="hero-badge-sub">free · no account required</div>
+    </div>
+  </section>
+
+  <section class="screenshots">
+    <img src="screenshots/home.png" alt="Home screen showing active trackers">
+    <img src="screenshots/details.png" alt="Tracker statistics and usage history">
+    <img src="screenshots/create.png" alt="Create a new tracker">
+  </section>
+
+  <section class="features">
+    <div class="features-label">what it does</div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-title">countdown</div>
+        <div class="feature-desc">start with a total and track what you use — pills, credits, sessions, data</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-title">accumulate</div>
+        <div class="feature-desc">build up entries toward a goal — gym sessions, savings, dog-sitting days</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-title">cost tracking</div>
+        <div class="feature-desc">attach a cost per unit and see exactly what you owe or have spent</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-title">past dates</div>
+        <div class="feature-desc">add entries for historical dates — backfill anything you missed</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-title">private &amp; offline</div>
+        <div class="feature-desc">everything stays on your device — no account, no cloud, no tracking</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-title">reminders</div>
+        <div class="feature-desc">weekly notifications so you never forget to log your usage</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© vivian lobo</span>
+    <a href="./privacy-policy/">privacy policy</a>
+  </footer>
+
+</body>
+</html>
