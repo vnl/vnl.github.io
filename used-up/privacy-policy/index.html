@@ -6,14 +6,26 @@
   <title>Privacy Policy — Used Up</title>
   <meta name="description" content="Privacy policy for the Used Up mobile app.">
   <link rel="canonical" href="https://vivianlobo.com/used-up/privacy-policy/">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --green: #6dcc9e;
+      --green-dim: #3a7a5a;
+      --bg: #000;
+      --surface: #0a0a0a;
+      --border: #161616;
+      --text-muted: #555;
+      --text-mid: #888;
+      --text-main: #ccc;
+      --text-bright: #fff;
+    }
+
     body {
-      background: #000;
-      color: #585656;
-      font-family: 'Roboto Mono', monospace;
+      background: var(--bg);
+      color: var(--text-muted);
+      font-family: 'Outfit', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -24,71 +36,138 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 48px;
-      border-bottom: 1px solid #111;
+      padding: 22px 52px;
+      border-bottom: 1px solid var(--border);
     }
-    .nav-back { font-size: 11px; color: #585656; letter-spacing: 1px; }
-    .nav-back:hover { color: #6dcc9e; }
-    .nav-label { font-size: 11px; color: #333; letter-spacing: 2px; }
+    .nav-back {
+      font-size: 13px;
+      font-family: 'Roboto Mono', monospace;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--green); }
+    .nav-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      color: #333;
+      letter-spacing: 2px;
+    }
 
     /* ── content ── */
     .content {
-      max-width: 640px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 64px 24px 80px;
+      padding: 72px 24px 88px;
     }
 
     h1 {
-      font-size: 24px;
-      color: #fff;
-      font-weight: 700;
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text-bright);
       letter-spacing: -0.5px;
       margin-bottom: 8px;
     }
 
     .meta {
-      font-size: 10px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
       color: #333;
       letter-spacing: 2px;
-      margin-bottom: 48px;
+      margin-bottom: 52px;
     }
 
     h2 {
-      font-size: 11px;
-      color: #6dcc9e;
-      letter-spacing: 2px;
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 1px;
       text-transform: uppercase;
-      margin: 32px 0 10px;
+      margin: 40px 0 12px;
     }
 
     p {
-      font-size: 13px;
-      color: #585656;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-mid);
       line-height: 1.8;
+    }
+
+    ul {
+      margin: 12px 0 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    ul li {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-mid);
+      line-height: 1.8;
+      padding-left: 16px;
+      position: relative;
+    }
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--green-dim);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 14px;
+    }
+    th {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-mid);
+      vertical-align: top;
+    }
+    td:first-child {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 13px;
+      color: var(--green);
+      white-space: nowrap;
     }
 
     code {
       font-family: 'Roboto Mono', monospace;
-      font-size: 12px;
-      color: #484545;
+      font-size: 13px;
+      color: #666;
     }
 
     /* ── footer ── */
     footer {
-      padding: 24px 48px;
+      padding: 28px 52px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 9px;
-      color: #333;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      color: #2e2e2e;
       letter-spacing: 1px;
     }
-    footer a { color: #585656; }
-    footer a:hover { color: #6dcc9e; }
+    footer a { color: var(--text-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--green); }
 
     @media (max-width: 600px) {
-      nav { padding: 16px 20px; }
-      .content { padding: 40px 20px 60px; }
+      nav { padding: 18px 20px; }
+      .content { padding: 48px 20px 64px; }
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 20px; }
     }
   </style>
@@ -96,38 +175,77 @@
 <body>
 
   <nav>
-    <a class="nav-back" href="../">← used-up</a>
+    <a class="nav-back" href="../">← Used Up</a>
     <span class="nav-label">privacy policy</span>
   </nav>
 
   <main class="content">
-    <h1>privacy policy</h1>
-    <div class="meta">used-up · last updated march 2026</div>
+    <h1>Privacy Policy</h1>
+    <div class="meta">Used Up &nbsp;·&nbsp; effective 18 march 2026 &nbsp;·&nbsp; last updated 18 march 2026</div>
 
     <h2>1. Overview</h2>
-    <p>Used Up is a mobile application for tracking prepaid resources and usage goals. This policy explains what data the app handles.</p>
+    <p>Used Up is a personal resource tracking app. Your privacy is important to us. This policy explains what data the app collects, how it is used, and what choices you have.</p>
 
-    <h2>2. Data stored on your device</h2>
-    <p>All tracker data (names, entries, settings) is stored locally in a SQLite database on your device. This data never leaves your device and is not accessible to us.</p>
+    <h2>2. Data You Create in the App</h2>
+    <p>All tracker data you create — including tracker names, entries, amounts, dates, notes, and settings — is stored exclusively on your device in a local SQLite database. This data:</p>
+    <ul>
+      <li>Never leaves your device</li>
+      <li>Is never uploaded to any server</li>
+      <li>Is never shared with third parties</li>
+      <li>Is not accessible to the app developer</li>
+    </ul>
+    <p style="margin-top:12px;">Uninstalling the app permanently deletes all your data.</p>
 
-    <h2>3. Diagnostics</h2>
-    <p>The app sends anonymous diagnostic data (crash reports and performance metrics) to a private server operated by the developer (<code>collector.vivianlobo.dev</code>). This data is used solely to improve app stability. It is not shared with any third party.</p>
+    <h2>3. No Diagnostic Data Collected</h2>
+    <p>Used Up does not collect any diagnostic, analytics, or telemetry data. No crash reports, performance metrics, or usage data are sent to any server. The app makes no external network requests.</p>
 
-    <h2>4. No account required</h2>
-    <p>Used Up does not require you to create an account. No personal information (name, email, location) is collected.</p>
+    <h2>4. Notifications</h2>
+    <p>If you enable reminders, notifications are scheduled entirely on your device using the operating system's local notification system. No notification content or schedule is transmitted to any server.</p>
 
-    <h2>5. Third-party services</h2>
-    <p>This website (vivianlobo.com/used-up) loads fonts from Google Fonts, which means your browser makes a request to Google's servers when you visit this page. The Used Up app itself does not use Google Fonts and makes no requests to Google.</p>
+    <h2>5. Permissions</h2>
+    <p>The app may request the following device permissions:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Permission</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Notifications</td>
+          <td>Optional reminders you configure</td>
+        </tr>
+        <tr>
+          <td>Exact alarms (Android)</td>
+          <td>Scheduling notifications at precise times</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px;">No other permissions are requested.</p>
 
-    <h2>6. Data deletion</h2>
-    <p>All tracker data is stored locally on your device. You can delete it at any time by clearing the app's data in your device settings, or by uninstalling the app. No data is held on any server that would need to be deleted remotely.</p>
+    <h2>6. Third-Party Services</h2>
+    <p>The app does not integrate with advertising networks, social media platforms, or analytics services. No data is transmitted to any external service.</p>
 
-    <h2>7. Contact</h2>
-    <p>Questions? Email <code>vivian@vivianlobo.com</code>.</p>
+    <h2>7. Children's Privacy</h2>
+    <p>Used Up does not knowingly collect any data from children under 13. The app collects no personal data from any user regardless of age.</p>
+
+    <h2>8. Data Retention and Deletion</h2>
+    <p>Since all your data is stored locally on your device, you are in full control:</p>
+    <ul>
+      <li>Delete specific data: Use the app's built-in delete functions for trackers and entries</li>
+      <li>Delete all data: Uninstall the app</li>
+    </ul>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>If this policy changes materially, the updated version will be published on this page with a revised effective date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>10. Contact</h2>
+    <p>For privacy questions or concerns, contact: <code>support@vivianlobo.com</code></p>
   </main>
 
   <footer>
-    <a href="../">← used-up</a>
+    <a href="../">← Used Up</a>
     <span>© vivian lobo</span>
   </footer>
 

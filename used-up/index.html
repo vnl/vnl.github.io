@@ -11,14 +11,26 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vivianlobo.com/used-up/">
   <meta property="og:image" content="https://vivianlobo.com/used-up/screenshots/home.png">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --green: #6dcc9e;
+      --green-dim: #3a7a5a;
+      --bg: #000;
+      --surface: #0a0a0a;
+      --border: #161616;
+      --text-muted: #555;
+      --text-mid: #888;
+      --text-main: #ccc;
+      --text-bright: #fff;
+    }
+
     body {
-      background: #000;
-      color: #585656;
-      font-family: 'Roboto Mono', monospace;
+      background: var(--bg);
+      color: var(--text-muted);
+      font-family: 'Outfit', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -29,46 +41,77 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 48px;
-      border-bottom: 1px solid #111;
+      padding: 22px 52px;
+      border-bottom: 1px solid var(--border);
     }
-    .nav-back { font-size: 11px; color: #585656; letter-spacing: 1px; }
-    .nav-back:hover { color: #6dcc9e; }
-    .nav-title { font-size: 11px; color: #6dcc9e; letter-spacing: 3px; }
+    .nav-back {
+      font-size: 13px;
+      font-family: 'Roboto Mono', monospace;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--green); }
+    .nav-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 1px;
+    }
 
     /* ── hero ── */
     .hero {
       text-align: center;
-      padding: 72px 24px 56px;
-      border-bottom: 1px solid #111;
+      padding: 88px 24px 72px;
+      border-bottom: 1px solid var(--border);
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, #0d2e1e 0%, transparent 70%);
+    }
+    .hero-eyebrow {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      color: var(--green-dim);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
     }
     .hero-name {
-      font-size: clamp(36px, 6vw, 64px);
-      color: #fff;
-      letter-spacing: -1px;
-      font-weight: 700;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(52px, 9vw, 96px);
+      font-weight: 800;
+      color: var(--text-bright);
+      letter-spacing: -2px;
+      line-height: 1;
     }
     .hero-tagline {
-      margin-top: 16px;
-      font-size: 13px;
-      color: #585656;
-      letter-spacing: 2px;
-      line-height: 1.8;
+      margin-top: 20px;
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text-mid);
+      letter-spacing: 0.2px;
+      line-height: 1.7;
+    }
+    .hero-cta {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      gap: 10px;
     }
     .hero-badge {
       display: inline-block;
-      margin-top: 32px;
-      border: 1px solid #333;
-      border-radius: 3px;
-      padding: 12px 24px;
-      font-size: 11px;
-      color: #444;
+      border: 1px solid var(--green-dim);
+      border-radius: 4px;
+      padding: 12px 28px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 12px;
+      color: var(--green);
       letter-spacing: 2px;
     }
     .hero-badge-sub {
-      margin-top: 10px;
-      font-size: 9px;
-      color: #333;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
       letter-spacing: 1px;
     }
 
@@ -77,76 +120,93 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      gap: 24px;
-      padding: 56px 48px;
-      border-bottom: 1px solid #111;
+      gap: 28px;
+      padding: 64px 52px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
     }
     .screenshots img {
       width: 28%;
       max-width: 220px;
-      border-radius: 16px;
+      border-radius: 20px;
       display: block;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.7), 0 0 0 1px #1a1a1a;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .screenshots img:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 0 1px #252525;
     }
 
     /* ── features ── */
     .features {
-      padding: 56px 48px;
-      border-bottom: 1px solid #111;
+      padding: 64px 52px;
+      border-bottom: 1px solid var(--border);
     }
-    .features-label {
-      font-size: 9px;
-      color: #333;
-      letter-spacing: 3px;
+    .section-label {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 4px;
       text-transform: uppercase;
-      margin-bottom: 28px;
+      margin-bottom: 36px;
       text-align: center;
     }
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
-      max-width: 720px;
+      max-width: 800px;
       margin: 0 auto;
     }
     .feature-item {
-      border: 1px solid #1a1a1a;
-      border-radius: 3px;
-      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 18px;
+      background: var(--surface);
+      transition: border-color 0.2s;
+    }
+    .feature-item:hover {
+      border-color: #2a2a2a;
     }
     .feature-title {
-      font-size: 11px;
-      color: #6dcc9e;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.3px;
+      margin-bottom: 8px;
     }
     .feature-desc {
-      font-size: 10px;
-      color: #484545;
-      line-height: 1.6;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.65;
     }
 
     /* ── footer ── */
     footer {
-      padding: 24px 48px;
+      padding: 28px 52px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 9px;
-      color: #333;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      color: #2e2e2e;
       letter-spacing: 1px;
     }
-    footer a { color: #585656; }
-    footer a:hover { color: #6dcc9e; }
+    footer a { color: var(--text-muted); transition: color 0.2s; }
+    footer a:hover { color: var(--green); }
 
     /* ── responsive ── */
     @media (max-width: 600px) {
-      nav { padding: 16px 20px; }
-      .hero { padding: 48px 20px 40px; }
+      nav { padding: 18px 20px; }
+      .hero { padding: 56px 20px 48px; }
       .screenshots {
         flex-direction: column;
         align-items: center;
         padding: 40px 20px;
+        gap: 20px;
       }
       .screenshots img { width: 80%; max-width: 300px; }
       .features { padding: 40px 20px; }
@@ -158,17 +218,18 @@
 
   <nav>
     <a class="nav-back" href="https://vivianlobo.com">← vivianlobo.com</a>
-    <span class="nav-title">used-up</span>
+    <span class="nav-title">Used Up</span>
   </nav>
 
   <main>
   <section class="hero">
-    <div class="hero-name">used-up</div>
+    <div class="hero-eyebrow">mobile app</div>
+    <div class="hero-name">Used Up</div>
     <div class="hero-tagline">
       track what matters.<br>
       always know what's left.
     </div>
-    <div>
+    <div class="hero-cta">
       <div class="hero-badge">coming soon on android &amp; ios</div>
       <div class="hero-badge-sub">free · no account required</div>
     </div>
@@ -181,31 +242,31 @@
   </section>
 
   <section class="features">
-    <div class="features-label">what it does</div>
+    <div class="section-label">what it does</div>
     <div class="features-grid">
       <div class="feature-item">
-        <div class="feature-title">countdown</div>
-        <div class="feature-desc">start with a total and track what you use — pills, credits, sessions, data</div>
+        <div class="feature-title">Countdown</div>
+        <div class="feature-desc">Start with a total and track what you use — pills, credits, sessions, data</div>
       </div>
       <div class="feature-item">
-        <div class="feature-title">accumulate</div>
-        <div class="feature-desc">build up entries toward a goal — gym sessions, savings, dog-sitting days</div>
+        <div class="feature-title">Accumulate</div>
+        <div class="feature-desc">Build up entries toward a goal — gym sessions, savings, dog-sitting days</div>
       </div>
       <div class="feature-item">
-        <div class="feature-title">cost tracking</div>
-        <div class="feature-desc">attach a cost per unit and see exactly what you owe or have spent</div>
+        <div class="feature-title">Cost tracking</div>
+        <div class="feature-desc">Attach a cost per unit and see exactly what you owe or have spent</div>
       </div>
       <div class="feature-item">
-        <div class="feature-title">past dates</div>
-        <div class="feature-desc">add entries for historical dates — backfill anything you missed</div>
+        <div class="feature-title">Past dates</div>
+        <div class="feature-desc">Add entries for historical dates — backfill anything you missed</div>
       </div>
       <div class="feature-item">
-        <div class="feature-title">private &amp; offline</div>
-        <div class="feature-desc">everything stays on your device — no account, no cloud, no tracking</div>
+        <div class="feature-title">Private &amp; offline</div>
+        <div class="feature-desc">Everything stays on your device — no account, no cloud, no tracking</div>
       </div>
       <div class="feature-item">
-        <div class="feature-title">reminders</div>
-        <div class="feature-desc">weekly notifications so you never forget to log your usage</div>
+        <div class="feature-title">Reminders</div>
+        <div class="feature-desc">Weekly notifications so you never forget to log your usage</div>
       </div>
     </div>
   </section>
