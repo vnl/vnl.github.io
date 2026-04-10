@@ -235,6 +235,50 @@ a:focus {
   color: #fff;
 }
 
+/* Tree menu styles */
+.menu__item--tree {
+  position: relative;
+}
+
+.menu__link--toggle {
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.chevron {
+  font-size: 0.6em;
+  margin-left: 0.5em;
+  transition: transform 0.3s ease;
+}
+
+.menu__link--toggle.is-expanded .chevron {
+  transform: rotate(180deg);
+}
+
+.menu__sublist {
+  list-style: none;
+  margin: 0 0 0 1.5em;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, margin 0.3s ease-out;
+}
+
+.menu__sublist.is-open {
+  max-height: 200px;
+  margin: 0.5em 0 0.5em 1.5em;
+}
+
+.menu__subitem {
+  margin: 0.25em 0 !important;
+}
+
+.menu__subitem .menu__link {
+  font-size: 0.85em;
+}
+
 .content__bottom {
   display: flex;
   align-items: center;

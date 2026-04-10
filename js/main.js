@@ -457,7 +457,7 @@
 		},
 		'code' : {
 			'wrapper': document.querySelector('.menu--code'),
-			'items': document.querySelectorAll('.menu--code > .menu__inner a')
+			'items': document.querySelectorAll('.menu--code > .menu__inner > .menu__item > a.menu__link')
 		}
 	};
 	DOM.overlay = document.querySelector('.overlay');
@@ -499,6 +499,18 @@
 	function initEvents() {
 		DOM.switchModeCtrls.design.addEventListener('click', switchMode);
 		DOM.switchModeCtrls.code.addEventListener('click', switchMode);
+
+		const projectsToggle = document.getElementById('projects-toggle');
+		if(projectsToggle) {
+			projectsToggle.addEventListener('click', function(ev) {
+				ev.preventDefault();
+				this.classList.toggle('is-expanded');
+				const sublist = document.getElementById('projects-sublist');
+				if(sublist) {
+					sublist.classList.toggle('is-open');
+				}
+			});
+		}
 
 		const pauseFxFn = function() {
 				pm.stopLoopFx();

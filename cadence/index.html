@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadence — Training Journal</title>
+  <meta name="description" content="Cadence is a personal fitness training journal built around a calendar. Log workouts, plan sessions, and track your consistency.">
+  <link rel="canonical" href="https://vivianlobo.com/cadence/">
+  <meta property="og:title" content="Cadence — Training Journal">
+  <meta property="og:description" content="A personal fitness training journal built around a calendar. Log, plan, and review your training.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vivianlobo.com/cadence/">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Direct from AppTokens */
+      --surface:        #F5F2EE;
+      --surface-card:   #FFFFFF;
+      --border:         #E5E2DE;
+      --text-primary:   #1A1A1A;
+      --text-secondary: #8A8A8A;
+      --text-muted:     #B0ADAA;
+      --accent:         #E8624A;
+      --accent-muted:   #F0957F;
+      --accent-subtle:  #FAD DD7;
+      --completed:      #5A8A6A;
+      --recovery:       #4A9B8E;
+      --surface-dark:   #1C1C1A;
+      --card-dark:      #2A2A28;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--surface);
+      color: var(--text-primary);
+      font-family: 'Lato', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── nav ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 52px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-back {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.4px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── hero ── */
+    .hero {
+      text-align: center;
+      padding: 96px 24px 80px;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,98,74,0.07) 0%, transparent 70%),
+        var(--surface);
+    }
+    .hero-logo {
+      display: block;
+      width: 100%;
+      max-width: 540px;
+      margin: 0 auto;
+      height: auto;
+    }
+    .hero-cta {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 44px;
+      gap: 12px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 4px;
+      padding: 13px 32px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .hero-badge:hover { background: var(--accent-muted); }
+    .hero-badge-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+
+
+    /* ── screenshots ── */
+    .screenshots {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 28px;
+      padding: 72px 52px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-card);
+    }
+    .screenshot-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      max-width: 220px;
+    }
+    .screenshot-img {
+      width: 100%;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 32px rgba(26,26,26,0.08), 0 2px 8px rgba(26,26,26,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+    }
+    .screenshot-img:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(26,26,26,0.12), 0 4px 12px rgba(26,26,26,0.06);
+    }
+    .screenshot-caption {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    /* When you have real screenshots, replace .screenshot-placeholder with: */
+    /* .screenshots img { width: 100%; max-width: 220px; border-radius: 24px; ... } */
+
+    /* ── features ── */
+    .features {
+      padding: 72px 52px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .feature-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 20px;
+      background: var(--surface-card);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-item:hover {
+      border-color: var(--accent-muted);
+      transform: translateY(-2px);
+    }
+    .feature-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-bottom: 14px;
+    }
+    .feature-dot.green   { background: var(--completed); }
+    .feature-dot.teal    { background: var(--recovery); }
+    .feature-dot.grey    { background: var(--text-muted); }
+    .feature-title {
+      font-family: 'Lato', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.2px;
+      margin-bottom: 8px;
+    }
+    .feature-desc {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── legend ── */
+    .legend {
+      padding: 48px 52px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-card);
+    }
+    .legend-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .legend-row:last-child { border-bottom: none; }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .legend-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-primary);
+      width: 140px;
+      flex-shrink: 0;
+    }
+    .legend-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── footer ── */
+    footer {
+      padding: 28px 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--text-secondary); transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+    /* ── responsive ── */
+    @media (max-width: 600px) {
+      nav { padding: 18px 20px; }
+      .hero { padding: 64px 20px 52px; }
+
+      .screenshots {
+        flex-direction: column;
+        align-items: center;
+        padding: 48px 20px;
+        gap: 32px;
+      }
+      .screenshot-wrap { max-width: 280px; width: 80%; }
+      .features { padding: 48px 20px; }
+      .legend { padding: 40px 20px; }
+      .legend-name { width: 120px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-back" href="https://vivianlobo.com">← vivianlobo.com</a>
+    <span class="nav-title">Cadence</span>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <img class="hero-logo" src="./screenshots/logo_light.svg" alt="Cadence Logo">
+      <div class="hero-cta">
+        <a class="hero-badge" href="#">Available on the App Store</a>
+        <div class="hero-badge-sub">one-time purchase · £1.99 · no subscription</div>
+      </div>
+    </section>
+
+
+
+    <section class="screenshots">
+      <div class="screenshot-wrap">
+        <img class="screenshot-img" src="./screenshots/cadence-calendar-light.png" alt="Calendar View">
+        <div class="screenshot-caption">home screen</div>
+      </div>
+      <div class="screenshot-wrap">
+        <img class="screenshot-img" src="./screenshots/cadence-log-entry-light.png" alt="Log Entry">
+        <div class="screenshot-caption">log a workout</div>
+      </div>
+      <div class="screenshot-wrap">
+        <img class="screenshot-img" src="./screenshots/cadence-dayview-light.png" alt="Day View">
+        <div class="screenshot-caption">day detail</div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="section-label">what it does</div>
+      <div class="features-grid">
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Calendar as home</div>
+          <div class="feature-desc">Your training lives on the calendar. Every session, rest day, and planned workout visible at a glance.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Log in under 60 seconds</div>
+          <div class="feature-desc">Title, notes, tags — done. Free-text notes are a first-class feature, not a fallback.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Plan ahead</div>
+          <div class="feature-desc">Create sessions on any future date. Planned entries are visually distinct from completed ones.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot green"></div>
+          <div class="feature-title">Two-a-days supported</div>
+          <div class="feature-desc">Multiple entries per day, stacked on the calendar cell. No artificial limits.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Tags for filtering</div>
+          <div class="feature-desc">Tag entries with your own labels — legs, upper, cardio — and filter by tag to review consistency.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot teal"></div>
+          <div class="feature-title">Rest &amp; recovery days</div>
+          <div class="feature-desc">Mark rest and recovery as distinct entry types. Your full week is always visible, not just the sessions.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot green"></div>
+          <div class="feature-title">Duplicate any entry</div>
+          <div class="feature-desc">Found a session to repeat? Duplicate it to a new date in two taps. Title, notes, and tags carry across.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot grey"></div>
+          <div class="feature-title">Private by default</div>
+          <div class="feature-desc">Training data is stored on your device. No ads. No subscriptions. One purchase, yours to keep.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="legend">
+      <div class="section-label">reading the calendar</div>
+      <div class="legend-inner">
+        <div class="legend-row">
+          <div class="legend-dot" style="background:#5A8A6A"></div>
+          <div class="legend-name">Completed</div>
+          <div class="legend-desc">A workout you have logged as done.</div>
+        </div>
+        <div class="legend-row">
+          <div class="legend-dot" style="background:#E8624A"></div>
+          <div class="legend-name">Planned</div>
+          <div class="legend-desc">A future session you have scheduled.</div>
+        </div>
+        <div class="legend-row">
+          <div class="legend-dot" style="background:#4A9B8E"></div>
+          <div class="legend-name">Recovery</div>
+          <div class="legend-desc">Active recovery — still training, but easy.</div>
+        </div>
+        <div class="legend-row">
+          <div class="legend-dot" style="background:#B0ADAA"></div>
+          <div class="legend-name">Rest</div>
+          <div class="legend-desc">A deliberate rest day, logged intentionally.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <a href="https://vivianlobo.com">← vivianlobo.com</a>
+    <span>© vivian lobo</span>
+    <a href="./privacy-policy/">privacy policy</a>
+  </footer>
+
+</body>
+</html>

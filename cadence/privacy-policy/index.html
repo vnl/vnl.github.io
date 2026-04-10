@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Cadence</title>
+  <meta name="description" content="Privacy policy for the Cadence training journal app.">
+  <link rel="canonical" href="https://vivianlobo.com/cadence/privacy-policy/">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --surface:        #F5F2EE;
+      --surface-card:   #FFFFFF;
+      --border:         #E5E2DE;
+      --text-primary:   #1A1A1A;
+      --text-secondary: #8A8A8A;
+      --text-muted:     #B0ADAA;
+      --accent:         #E8624A;
+      --accent-muted:   #F0957F;
+      --completed:      #5A8A6A;
+      --recovery:       #4A9B8E;
+    }
+
+    body {
+      background: var(--surface);
+      color: var(--text-primary);
+      font-family: 'Lato', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── nav ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 52px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-back {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      letter-spacing: 0.4px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ── content ── */
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 72px 24px 96px;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 40px;
+      font-weight: 400;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 1.5px;
+      margin-bottom: 56px;
+    }
+
+    h2 {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 44px 0 14px;
+    }
+
+    p {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.85;
+    }
+
+    p + p { margin-top: 12px; }
+
+    ul {
+      margin: 14px 0 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    ul li {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.85;
+      padding-left: 18px;
+      position: relative;
+    }
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent-muted);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+    th {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    td:first-child {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+    td a {
+      color: var(--accent);
+      transition: opacity 0.2s;
+    }
+    td a:hover { opacity: 0.7; }
+
+    code {
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      color: var(--text-secondary);
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    strong {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* ── footer ── */
+    footer {
+      padding: 28px 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--text-secondary); transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 600px) {
+      nav { padding: 18px 20px; }
+      .content { padding: 48px 20px 72px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+      td:first-child { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-back" href="../">← Cadence</a>
+    <span class="nav-label">privacy policy</span>
+  </nav>
+
+  <main class="content">
+    <h1>Privacy Policy</h1>
+    <div class="meta">Cadence &nbsp;·&nbsp; effective 10 April 2026 &nbsp;·&nbsp; last updated 10 April 2026</div>
+
+    <h2>1. Overview</h2>
+    <p>Cadence is a personal fitness training journal. Your privacy is important to us. This policy explains what data the app collects, how it is used, and what choices you have.</p>
+
+    <h2>2. Account and Authentication</h2>
+    <p>Cadence requires an account to use. Authentication is handled by <strong>Supabase</strong> (Supabase Inc.), a third-party service. When you create an account or sign in, the following data is processed by Supabase:</p>
+    <ul>
+      <li>Your email address</li>
+      <li>Your password (stored as a secure hash; never visible to the developer)</li>
+      <li>Authentication tokens used to maintain your session</li>
+    </ul>
+    <p style="margin-top:14px;">If you sign in with Google, your Google account email and display name are passed to Supabase via OAuth. No other Google account data is accessed.</p>
+    <p>Supabase's privacy policy is available at <a href="https://supabase.com/privacy" style="color:var(--accent);">supabase.com/privacy</a>.</p>
+
+    <h2>3. Data You Create in the App</h2>
+    <p>All training data you create — including workout entries, notes, tags, dates, and rest day records — is stored exclusively on your device in a local SQLite database. This data:</p>
+    <ul>
+      <li>Never leaves your device</li>
+      <li>Is never uploaded to any server</li>
+      <li>Is never shared with third parties</li>
+      <li>Is not accessible to the app developer</li>
+    </ul>
+    <p style="margin-top:14px;">Uninstalling the app permanently deletes all your training data.</p>
+
+    <h2>4. No Analytics or Diagnostic Data</h2>
+    <p>Cadence does not collect any diagnostic, analytics, or telemetry data. No crash reports, performance metrics, or usage statistics are sent to any server.</p>
+
+    <h2>5. Permissions</h2>
+    <p>The app may request the following device permissions:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Permission</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sign in with Apple / Google</td>
+          <td>Optional sign-in method</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px;">No other permissions are requested at this time. Future versions may request notification permissions for optional training reminders; this policy will be updated accordingly.</p>
+
+    <h2>6. Third-Party Services</h2>
+    <p>Cadence uses the following third-party service:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Purpose</th>
+          <th>Privacy Policy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Supabase</td>
+          <td>Account authentication only</td>
+          <td><a href="https://supabase.com/privacy">supabase.com/privacy</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px;">No advertising networks, analytics platforms, or social media SDKs are integrated.</p>
+
+    <h2>7. Data Retention and Deletion</h2>
+    <p>Your training data is stored locally on your device. You are in full control:</p>
+    <ul>
+      <li><strong>Delete specific entries:</strong> Use the app's built-in delete functions</li>
+      <li><strong>Delete all training data:</strong> Uninstall the app</li>
+      <li><strong>Delete your account:</strong> Contact <code>support@vivianlobo.com</code> and your authentication record will be permanently removed from Supabase</li>
+    </ul>
+
+    <h2>8. Children</h2>
+    <p>Cadence is not directed at children under the age of 13. We do not knowingly collect personal data from children.</p>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>If this policy changes materially, the updated version will be published on this page with a revised effective date. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>10. Contact</h2>
+    <p>For privacy questions or concerns, contact: <code>support@vivianlobo.com</code></p>
+
+  </main>
+
+  <footer>
+    <a href="../">← Cadence</a>
+    <span>© vivian lobo</span>
+    <span></span>
+  </footer>
+
+</body>
+</html>
