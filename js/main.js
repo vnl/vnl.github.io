@@ -457,7 +457,7 @@
 		},
 		'code' : {
 			'wrapper': document.querySelector('.menu--code'),
-			'items': document.querySelectorAll('.menu--code > .menu__inner a')
+			'items': document.querySelectorAll('.menu--code > .menu__inner > .menu__item > a.menu__link')
 		}
 	};
 	DOM.overlay = document.querySelector('.overlay');
