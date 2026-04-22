@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://vivianlobo.com/waxandspindle/privacy-policy/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700&family=Inter:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&family=Inter:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -127,6 +127,8 @@
       color: var(--accent-muted);
     }
 
+    ul + p { margin-top: 14px; }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -228,7 +230,7 @@
       <li>Is never shared with third parties</li>
       <li>Is not accessible to the app developer</li>
     </ul>
-    <p style="margin-top:14px;">Uninstalling the app permanently deletes all locally cached data.</p>
+    <p>Uninstalling the app permanently deletes all locally cached data.</p>
 
     <h2>4. Crash Reporting</h2>
     <p>Wax &amp; Spindle uses <strong>Firebase Crashlytics</strong> (Google LLC) to receive crash reports. When the app crashes, a report is automatically sent to Google containing:</p>
@@ -238,7 +240,7 @@
       <li>App version</li>
       <li>Crash stack trace</li>
     </ul>
-    <p style="margin-top:14px;">No personal identifiers, no Discogs data, and no collection information are included in crash reports.</p>
+    <p>No personal identifiers, no Discogs data, and no collection information are included in crash reports.</p>
     <p>Firebase's privacy policy is available at <a href="https://firebase.google.com/support/privacy" style="color:var(--accent);">firebase.google.com/support/privacy</a>.</p>
 
     <h2>5. Permissions</h2>
@@ -246,9 +248,9 @@
     <table>
       <thead>
         <tr>
-          <th>Permission</th>
-          <th>Purpose</th>
-          <th>Required</th>
+          <th scope="col">Permission</th>
+          <th scope="col">Purpose</th>
+          <th scope="col">Required</th>
         </tr>
       </thead>
       <tbody>
@@ -269,16 +271,16 @@
     <table>
       <thead>
         <tr>
-          <th>Service</th>
-          <th>Purpose</th>
-          <th>Privacy Policy</th>
+          <th scope="col">Service</th>
+          <th scope="col">Purpose</th>
+          <th scope="col">Privacy Policy</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Discogs API</td>
           <td>Collection, wantlist, search, marketplace data</td>
-          <td><a href="https://www.discogs.com/privacy">discogs.com/privacy</a></td>
+          <td><a href="https://www.discogs.com/about/privacy">discogs.com/about/privacy</a></td>
         </tr>
         <tr>
           <td>Firebase Crashlytics</td>
@@ -287,7 +289,7 @@
         </tr>
       </tbody>
     </table>
-    <p style="margin-top:14px;">No advertising networks, analytics platforms, or social media SDKs are integrated.</p>
+    <p>No advertising networks, analytics platforms, or social media SDKs are integrated.</p>
 
     <h2>7. Data Retention and Deletion</h2>
     <p>Your locally cached collection data is deleted when you uninstall the app. You are in full control:</p>
@@ -295,7 +297,7 @@
       <li><strong>Delete cached data:</strong> Uninstall the app</li>
       <li><strong>Revoke Discogs access:</strong> Visit your Discogs account settings and remove the app's authorisation — this immediately invalidates the stored access token</li>
     </ul>
-    <p style="margin-top:14px;">Crash report data is retained by Google per their Firebase data retention policy.</p>
+    <p>Crash report data is retained by Google per their Firebase data retention policy.</p>
 
     <h2>8. Children</h2>
     <p>Wax &amp; Spindle is not directed at children under the age of 13. We do not knowingly process personal data from children.</p>
@@ -311,7 +313,7 @@
   <footer>
     <a href="../">← Wax &amp; Spindle</a>
     <span>© vivian lobo</span>
-    <span></span>
+    <span aria-hidden="true"></span>
   </footer>
 
 </body>
