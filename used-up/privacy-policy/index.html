@@ -6,30 +6,35 @@
   <title>Privacy Policy — Used Up</title>
   <meta name="description" content="Privacy policy for the Used Up mobile app.">
   <link rel="canonical" href="https://vivianlobo.com/used-up/privacy-policy/">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green: #6dcc9e;
-      --green-dim: #3a7a5a;
-      --bg: #000;
-      --surface: #0a0a0a;
-      --border: #161616;
-      --text-muted: #555;
-      --text-mid: #888;
-      --text-main: #ccc;
-      --text-bright: #fff;
+      --bg:             #FDF9F2;
+      --surface-low:    #F7F3EC;
+      --surface:        #F1EDE6;
+      --text-primary:   #1C1410;
+      --text-secondary: #86736A;
+      --text-muted:     #A8968D;
+      --primary:        #8C4E25;
+      --accent:         #D4895A;
+      --accent-dim:     #B8724A;
+      --sage:           #5A8F6A;
+      --border:         #D8C2B7;
+      --divider:        #E8DDD5;
     }
 
     body {
       background: var(--bg);
-      color: var(--text-muted);
-      font-family: 'Outfit', sans-serif;
+      color: var(--text-secondary);
+      font-family: 'Lato', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
-    a { text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
 
     /* ── nav ── */
     nav {
@@ -37,21 +42,26 @@
       justify-content: space-between;
       align-items: center;
       padding: 22px 52px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--divider);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     .nav-back {
-      font-size: 13px;
-      font-family: 'Roboto Mono', monospace;
-      color: var(--text-muted);
-      letter-spacing: 0.5px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      letter-spacing: 0.4px;
       transition: color 0.2s;
     }
-    .nav-back:hover { color: var(--green); }
-    .nav-label {
-      font-family: 'Roboto Mono', monospace;
-      font-size: 11px;
-      color: #333;
-      letter-spacing: 2px;
+    .nav-back:hover { color: var(--accent); }
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.3px;
     }
 
     /* ── content ── */
@@ -62,27 +72,28 @@
     }
 
     h1 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 32px;
-      font-weight: 800;
-      color: var(--text-bright);
+      font-weight: 700;
+      color: var(--primary);
       letter-spacing: -0.5px;
       margin-bottom: 8px;
     }
 
     .meta {
-      font-family: 'Roboto Mono', monospace;
       font-size: 11px;
-      color: #333;
+      font-weight: 700;
+      color: var(--text-muted);
       letter-spacing: 2px;
+      text-transform: uppercase;
       margin-bottom: 52px;
     }
 
     h2 {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 13px;
       font-weight: 700;
-      color: var(--green);
+      color: var(--accent-dim);
       letter-spacing: 1px;
       text-transform: uppercase;
       margin: 40px 0 12px;
@@ -91,7 +102,7 @@
     p {
       font-size: 15px;
       font-weight: 400;
-      color: var(--text-mid);
+      color: var(--text-secondary);
       line-height: 1.8;
     }
 
@@ -103,7 +114,7 @@
     ul li {
       font-size: 15px;
       font-weight: 400;
-      color: var(--text-mid);
+      color: var(--text-secondary);
       line-height: 1.8;
       padding-left: 16px;
       position: relative;
@@ -112,7 +123,7 @@
       content: '—';
       position: absolute;
       left: 0;
-      color: var(--green-dim);
+      color: var(--text-muted);
     }
 
     table {
@@ -122,9 +133,8 @@
       font-size: 14px;
     }
     th {
-      font-family: 'Roboto Mono', monospace;
       font-size: 10px;
-      font-weight: 500;
+      font-weight: 700;
       color: var(--text-muted);
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -134,21 +144,20 @@
     }
     td {
       padding: 12px 16px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-mid);
+      border-bottom: 1px solid var(--divider);
+      color: var(--text-secondary);
       vertical-align: top;
     }
     td:first-child {
-      font-family: 'Roboto Mono', monospace;
       font-size: 13px;
-      color: var(--green);
+      font-weight: 700;
+      color: var(--primary);
       white-space: nowrap;
     }
 
     code {
-      font-family: 'Roboto Mono', monospace;
       font-size: 13px;
-      color: #666;
+      color: var(--text-secondary);
     }
 
     /* ── footer ── */
@@ -157,13 +166,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: 'Roboto Mono', monospace;
       font-size: 10px;
-      color: #2e2e2e;
+      font-weight: 700;
+      color: var(--text-muted);
       letter-spacing: 1px;
+      border-top: 1px solid var(--divider);
+      background: var(--surface-low);
     }
-    footer a { color: var(--text-muted); transition: color 0.2s; }
-    footer a:hover { color: var(--green); }
+    footer a { color: var(--text-secondary); transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
 
     @media (max-width: 600px) {
       nav { padding: 18px 20px; }
@@ -176,7 +187,7 @@
 
   <nav>
     <a class="nav-back" href="../">← Used Up</a>
-    <span class="nav-label">privacy policy</span>
+    <span class="nav-title">Used Up</span>
   </nav>
 
   <main class="content">
