@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wax &amp; Spindle — Your collection, always with you</title>
+  <meta name="description" content="A beautiful third-party Discogs client for vinyl collectors. Browse your collection, check marketplace prices, and scan barcodes. Coming soon on iOS.">
+  <link rel="canonical" href="https://vivianlobo.com/waxandspindle/">
+  <meta property="og:title" content="Wax &amp; Spindle — Your collection, always with you">
+  <meta property="og:description" content="A beautiful Discogs client for vinyl collectors. Coming soon on iOS.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vivianlobo.com/waxandspindle/">
+  <meta property="og:image" content="https://vivianlobo.com/waxandspindle/screenshots/home.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,700;1,900&family=Inter:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:             #1A1612;
+      --surface:        #232018;
+      --elevated:       #2C2820;
+      --text-primary:   #F2EDE8;
+      --text-secondary: #B8AFA6;
+      --text-tertiary:  #7A7068;
+      --accent:         #D4A853;
+      --accent-muted:   #8A6C34;
+      --border:         #3D3830;
+      --divider:        #333028;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── nav ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 52px;
+      border-bottom: 1px solid var(--divider);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-back {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.4px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent); }
+    .nav-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+    }
+
+    /* ── hero ── */
+    .hero {
+      text-align: center;
+      padding: 88px 24px 80px;
+      border-bottom: 1px solid var(--divider);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(212,168,83,0.09) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .disc {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      margin: 0 auto 40px;
+      position: relative;
+      background: conic-gradient(from 0deg,
+        #241f1a 0deg, #2C2820 30deg, #232018 60deg,
+        #2C2820 90deg, #241f1a 120deg, #2C2820 150deg,
+        #232018 180deg, #2C2820 210deg, #241f1a 240deg,
+        #2C2820 270deg, #232018 300deg, #2C2820 330deg,
+        #241f1a 360deg);
+      border: 1px solid var(--border);
+      box-shadow:
+        0 0 0 1px rgba(212,168,83,0.1),
+        0 8px 40px rgba(0,0,0,0.5),
+        0 0 60px rgba(212,168,83,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: disc-spin 18s linear infinite;
+    }
+    .disc::before {
+      content: '';
+      position: absolute;
+      inset: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50%, var(--bg) 0%, var(--surface) 100%);
+      border: 1px solid var(--border);
+    }
+    .disc-label {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-muted) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      animation: disc-spin-reverse 18s linear infinite;
+    }
+    .disc-label-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 7px;
+      color: var(--bg);
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+    @keyframes disc-spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    @keyframes disc-spin-reverse {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(-360deg); }
+    }
+
+    .hero-wordmark {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.0;
+      letter-spacing: -1.5px;
+      color: var(--accent);
+      background: linear-gradient(150deg, #F2EDE8 0%, #D4A853 45%, #9A7A40 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+    }
+
+    .hero-tagline {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text-secondary);
+      letter-spacing: 0.2px;
+      line-height: 1.65;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      gap: 12px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid rgba(212,168,83,0.5);
+      border-radius: 4px;
+      padding: 13px 32px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      color: var(--accent);
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .hero-badge:hover { background: rgba(212,168,83,0.08); }
+
+    .hero-badge-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-tertiary);
+      letter-spacing: 1.5px;
+    }
+
+    /* ── screenshots ── */
+    .screenshots {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 72px 52px;
+      border-bottom: 1px solid var(--divider);
+      background: var(--surface);
+    }
+    .screenshot-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      flex: 1;
+      max-width: 220px;
+    }
+    .screenshot-img {
+      width: 100%;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,168,83,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
+    }
+    .screenshot-img:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,168,83,0.12);
+    }
+    .screenshot-caption {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-tertiary);
+      letter-spacing: 1.5px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* ── features ── */
+    .features {
+      padding: 72px 52px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-tertiary);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      max-width: 840px;
+      margin: 0 auto;
+    }
+    .feature-item {
+      background: var(--elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 18px;
+      transition: border-color 0.2s;
+    }
+    .feature-item:hover { border-color: var(--accent-muted); }
+    .feature-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-bottom: 12px;
+    }
+    .feature-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: 0.1px;
+      margin-bottom: 7px;
+    }
+    .feature-desc {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ── footer ── */
+    footer {
+      padding: 28px 52px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--text-tertiary);
+      letter-spacing: 1px;
+      border-top: 1px solid var(--divider);
+    }
+    footer a { color: var(--text-secondary); transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
+
+    /* ── responsive ── */
+    @media (max-width: 600px) {
+      nav { padding: 18px 20px; }
+      .hero { padding: 64px 20px 56px; }
+      .screenshots {
+        flex-direction: column;
+        align-items: center;
+        padding: 48px 20px;
+        gap: 32px;
+      }
+      .screenshot-wrap { max-width: 280px; width: 80%; }
+      .features { padding: 48px 20px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-back" href="https://vivianlobo.com">← vivianlobo.com</a>
+    <span class="nav-title">Wax &amp; Spindle</span>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="disc">
+        <div class="disc-label">
+          <span class="disc-label-text">W&amp;S</span>
+        </div>
+      </div>
+      <h1 class="hero-wordmark">Wax &amp; Spindle</h1>
+      <p class="hero-tagline">Your collection, always with you.</p>
+      <div class="hero-cta">
+        <div class="hero-badge">Coming soon on iOS</div>
+        <div class="hero-badge-sub">one-time purchase · $7.99 · no subscription</div>
+      </div>
+    </section>
+
+    <section class="screenshots">
+      <div class="screenshot-wrap">
+        <img class="screenshot-img" src="./screenshots/home.png" alt="Collection grid view">
+        <div class="screenshot-caption">collection</div>
+      </div>
+      <div class="screenshot-wrap">
+        <img class="screenshot-img" src="./screenshots/search.png" alt="Search screen">
+        <div class="screenshot-caption">search</div>
+      </div>
+      <div class="screenshot-wrap">
+        <img class="screenshot-img" src="./screenshots/wantlist.png" alt="Wantlist grid view">
+        <div class="screenshot-caption">wantlist</div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="section-label">what it does</div>
+      <div class="features-grid">
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Collection</div>
+          <div class="feature-desc">Browse your entire Discogs library in a beautiful art-first grid.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Offline first</div>
+          <div class="feature-desc">Syncs in the background. Works without signal — perfect for record fairs.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Marketplace</div>
+          <div class="feature-desc">Live pricing and seller listings for any release, sorted by price.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Barcode scanner</div>
+          <div class="feature-desc">Point at any record to look it up instantly. Great for charity shops.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Wantlist</div>
+          <div class="feature-desc">Your full want list with live lowest prices for every record.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Dynamic colour</div>
+          <div class="feature-desc">The UI shifts to match the dominant colour of the current record's artwork.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Fast search</div>
+          <div class="feature-desc">Instant local search plus full Discogs catalogue lookup, side by side.</div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-dot"></div>
+          <div class="feature-title">Private by default</div>
+          <div class="feature-desc">Your data stays on your device. No account required beyond Discogs.</div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <a href="https://vivianlobo.com">← vivianlobo.com</a>
+    <span>© vivian lobo</span>
+    <a href="./privacy-policy/">privacy policy</a>
+  </footer>
+
+</body>
+</html>
