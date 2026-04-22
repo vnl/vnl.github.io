@@ -11,30 +11,37 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vivianlobo.com/used-up/">
   <meta property="og:image" content="https://vivianlobo.com/used-up/screenshots/home.png">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green: #6dcc9e;
-      --green-dim: #3a7a5a;
-      --bg: #000;
-      --surface: #0a0a0a;
-      --border: #161616;
-      --text-muted: #555;
-      --text-mid: #888;
-      --text-main: #ccc;
-      --text-bright: #fff;
+      --bg:             #FDF9F2;
+      --surface-low:    #F7F3EC;
+      --surface:        #F1EDE6;
+      --text-primary:   #1C1410;
+      --text-secondary: #86736A;
+      --text-muted:     #A8968D;
+      --primary:        #8C4E25;
+      --accent:         #D4895A;
+      --accent-dim:     #B8724A;
+      --sage:           #5A8F6A;
+      --border:         #D8C2B7;
+      --divider:        #E8DDD5;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
-      color: var(--text-muted);
-      font-family: 'Outfit', sans-serif;
+      color: var(--text-primary);
+      font-family: 'Lato', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
-    a { text-decoration: none; }
+    a { text-decoration: none; color: inherit; }
 
     /* ── nav ── */
     nav {
@@ -42,52 +49,58 @@
       justify-content: space-between;
       align-items: center;
       padding: 22px 52px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--divider);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
     .nav-back {
-      font-size: 13px;
-      font-family: 'Roboto Mono', monospace;
-      color: var(--text-muted);
-      letter-spacing: 0.5px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      letter-spacing: 0.4px;
       transition: color 0.2s;
     }
-    .nav-back:hover { color: var(--green); }
+    .nav-back:hover { color: var(--accent); }
     .nav-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 15px;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
       font-weight: 700;
-      color: var(--green);
-      letter-spacing: 1px;
+      color: var(--primary);
+      letter-spacing: 0.3px;
     }
 
     /* ── hero ── */
     .hero {
       text-align: center;
       padding: 88px 24px 72px;
-      border-bottom: 1px solid var(--border);
-      background: radial-gradient(ellipse 70% 50% at 50% 0%, #0d2e1e 0%, transparent 70%);
+      border-bottom: 1px solid var(--divider);
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,137,90,0.12) 0%, transparent 70%),
+        var(--bg);
     }
     .hero-eyebrow {
-      font-family: 'Roboto Mono', monospace;
-      font-size: 11px;
-      color: var(--green-dim);
-      letter-spacing: 3px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--accent-dim);
+      letter-spacing: 4px;
       text-transform: uppercase;
       margin-bottom: 20px;
     }
     .hero-name {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(28px, 5vw, 48px);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 52px);
       font-weight: 700;
-      color: var(--text-bright);
-      letter-spacing: -1px;
-      line-height: 1.2;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
     }
     .hero-tagline {
       margin-top: 20px;
       font-size: 17px;
       font-weight: 300;
-      color: var(--text-mid);
+      color: var(--text-secondary);
       letter-spacing: 0.2px;
       line-height: 1.7;
     }
@@ -100,16 +113,18 @@
     }
     .hero-badge {
       display: inline-block;
-      border: 1px solid var(--green-dim);
-      border-radius: 4px;
-      padding: 12px 28px;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 12px;
-      color: var(--green);
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      padding: 13px 32px;
+      font-size: 11px;
+      font-weight: 700;
       letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: background 0.2s;
     }
+    .hero-badge:hover { background: var(--accent-dim); }
     .hero-badge-sub {
-      font-family: 'Roboto Mono', monospace;
       font-size: 11px;
       color: var(--text-muted);
       letter-spacing: 1px;
@@ -122,30 +137,31 @@
       align-items: flex-start;
       gap: 28px;
       padding: 64px 52px;
-      border-bottom: 1px solid var(--border);
-      background: var(--surface);
+      border-bottom: 1px solid var(--divider);
+      background: var(--surface-low);
     }
     .screenshots img {
       width: 28%;
       max-width: 220px;
       border-radius: 20px;
       display: block;
-      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.7), 0 0 0 1px #1a1a1a;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 32px rgba(140,78,37,0.1), 0 2px 8px rgba(140,78,37,0.06);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .screenshots img:hover {
       transform: translateY(-6px);
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 0 1px #252525;
+      box-shadow: 0 20px 56px rgba(140,78,37,0.15), 0 4px 12px rgba(140,78,37,0.08);
     }
 
     /* ── features ── */
     .features {
       padding: 64px 52px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--divider);
     }
     .section-label {
-      font-family: 'Roboto Mono', monospace;
       font-size: 10px;
+      font-weight: 700;
       color: var(--text-muted);
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -155,32 +171,42 @@
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
+      gap: 12px;
       max-width: 800px;
       margin: 0 auto;
     }
     .feature-item {
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: 10px;
       padding: 20px 18px;
-      background: var(--surface);
-      transition: border-color 0.2s;
+      background: var(--surface-low);
+      transition: border-color 0.2s, transform 0.2s;
     }
     .feature-item:hover {
-      border-color: #2a2a2a;
+      border-color: var(--accent);
+      transform: translateY(-2px);
     }
+    .feature-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-bottom: 12px;
+    }
+    .dot-terracotta { background: var(--accent); }
+    .dot-sage       { background: var(--sage); }
+    .dot-muted      { background: var(--text-muted); }
     .feature-title {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-size: 14px;
       font-weight: 700;
-      color: var(--green);
-      letter-spacing: 0.3px;
+      color: var(--text-primary);
+      letter-spacing: 0.1px;
       margin-bottom: 8px;
     }
     .feature-desc {
       font-size: 13px;
-      font-weight: 300;
-      color: var(--text-muted);
+      font-weight: 400;
+      color: var(--text-secondary);
       line-height: 1.65;
     }
 
@@ -190,13 +216,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-family: 'Roboto Mono', monospace;
       font-size: 10px;
-      color: #2e2e2e;
+      font-weight: 700;
+      color: var(--text-muted);
       letter-spacing: 1px;
+      border-top: 1px solid var(--divider);
+      background: var(--surface-low);
     }
-    footer a { color: var(--text-muted); transition: color 0.2s; }
-    footer a:hover { color: var(--green); }
+    footer a { color: var(--text-secondary); transition: color 0.2s; }
+    footer a:hover { color: var(--accent); }
 
     /* ── responsive ── */
     @media (max-width: 600px) {
@@ -224,11 +252,11 @@
   <main>
   <section class="hero">
     <div class="hero-eyebrow">mobile app</div>
-    <div class="hero-name">Used Up</div>
-    <div class="hero-tagline">
+    <h1 class="hero-name">Used Up</h1>
+    <p class="hero-tagline">
       track what matters.<br>
       always know what's left.
-    </div>
+    </p>
     <div class="hero-cta">
       <div class="hero-badge">coming soon on android &amp; ios</div>
       <div class="hero-badge-sub">freemium · no account required</div>
@@ -245,26 +273,32 @@
     <div class="section-label">what it does</div>
     <div class="features-grid">
       <div class="feature-item">
+        <div class="feature-dot dot-terracotta"></div>
         <div class="feature-title">Countdown</div>
         <div class="feature-desc">Start with a total and track what you use — pills, credits, sessions, data</div>
       </div>
       <div class="feature-item">
+        <div class="feature-dot dot-sage"></div>
         <div class="feature-title">Accumulate</div>
         <div class="feature-desc">Build up entries toward a goal — gym sessions, savings, dog-sitting days</div>
       </div>
       <div class="feature-item">
+        <div class="feature-dot dot-terracotta"></div>
         <div class="feature-title">Cost tracking</div>
         <div class="feature-desc">Attach a cost per unit and see exactly what you owe or have spent</div>
       </div>
       <div class="feature-item">
+        <div class="feature-dot dot-sage"></div>
         <div class="feature-title">Past dates</div>
         <div class="feature-desc">Add entries for historical dates — backfill anything you missed</div>
       </div>
       <div class="feature-item">
+        <div class="feature-dot dot-muted"></div>
         <div class="feature-title">Private &amp; offline</div>
         <div class="feature-desc">Everything stays on your device — no account, no cloud, no tracking</div>
       </div>
       <div class="feature-item">
+        <div class="feature-dot dot-terracotta"></div>
         <div class="feature-title">Reminders</div>
         <div class="feature-desc">Weekly notifications so you never forget to log your usage</div>
       </div>
