@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Afterglow — Quotes worth keeping</title>
+  <meta name="description" content="Afterglow is a quiet daily quotes app for iPhone, with lightweight notes and a personal collection of the words you choose to keep. Coming soon.">
+  <link rel="canonical" href="https://vivianlobo.com/afterglow/">
+  <meta property="og:title" content="Afterglow — Quotes worth keeping">
+  <meta property="og:description" content="One quote a day. Keep what resonates, add a thought, and build a quiet record over time. Coming soon to iPhone.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vivianlobo.com/afterglow/">
+  <meta property="og:image" content="https://vivianlobo.com/afterglow/afterglow-icon.png">
+  <meta name="theme-color" content="#F7F3E8">
+  <link rel="icon" type="image/png" href="./afterglow-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --canvas: #f7f3e8;
+      --ink: #1a1a1a;
+      --muted: #6f746f;
+      --line: rgba(26, 26, 26, 0.14);
+      --teal: #4fb8c4;
+      --mint: #8fd9b6;
+      --coral: #e8896b;
+      --gold: #e3a857;
+      --yellow: #efc94c;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: Inter, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    nav {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      padding: 18px clamp(22px, 5vw, 64px);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      font: 500 14px/1 DM Mono, monospace;
+      letter-spacing: .04em;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font: 400 10px/1 DM Mono, monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .status::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--coral);
+    }
+    main {
+      position: relative;
+      min-height: calc(100vh - 76px);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+      align-items: center;
+      padding: clamp(64px, 9vw, 120px) clamp(22px, 7vw, 104px) 110px;
+    }
+    .fan {
+      position: absolute;
+      z-index: 0;
+      top: -15vw;
+      right: -12vw;
+      width: min(68vw, 940px);
+      height: min(70vw, 920px);
+      pointer-events: none;
+      transform-origin: 100% 0;
+      animation: breathe 11s ease-in-out infinite alternate;
+    }
+    .leaf {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 78%;
+      height: 86%;
+      border-radius: 0 0 0 32px;
+      transform-origin: 100% 0;
+      clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 88%);
+    }
+    .leaf:nth-child(1) { background: var(--teal); transform: rotate(-2deg) translate(-1%, 1%); }
+    .leaf:nth-child(2) { background: var(--mint); transform: rotate(-11deg) translate(-4%, 2%); }
+    .leaf:nth-child(3) { background: var(--coral); transform: rotate(-20deg) translate(-7%, 3%); }
+    .leaf:nth-child(4) { background: var(--gold); transform: rotate(-29deg) translate(-10%, 4%); }
+    .leaf:nth-child(5) { background: var(--yellow); transform: rotate(-38deg) translate(-13%, 5%); }
+    @keyframes breathe {
+      to { transform: rotate(1.2deg) translateY(8px); }
+    }
+    .copy {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+    }
+    .eyebrow {
+      margin-bottom: 26px;
+      font: 500 11px/1.5 DM Mono, monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 620px;
+      font: 500 clamp(54px, 7.5vw, 116px)/.92 DM Mono, monospace;
+      letter-spacing: -.075em;
+    }
+    .intro {
+      max-width: 520px;
+      margin-top: 34px;
+      font-size: clamp(18px, 2vw, 23px);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .detail {
+      max-width: 490px;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .coming-soon {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 42px;
+      padding: 14px 18px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      font: 500 11px/1 DM Mono, monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .coming-soon span {
+      display: inline-block;
+      width: 30px;
+      height: 2px;
+      background: var(--ink);
+    }
+    .icon-wrap {
+      position: relative;
+      z-index: 3;
+      justify-self: end;
+      align-self: end;
+      width: clamp(116px, 14vw, 180px);
+      margin: 0 1vw 2vw 0;
+    }
+    .icon-wrap img {
+      display: block;
+      width: 100%;
+      border-radius: 24%;
+    }
+    .icon-label {
+      margin-top: 12px;
+      color: rgba(26,26,26,.62);
+      text-align: center;
+      font: 400 9px/1.4 DM Mono, monospace;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    footer {
+      position: absolute;
+      z-index: 6;
+      left: clamp(22px, 5vw, 64px);
+      right: clamp(22px, 5vw, 64px);
+      bottom: 28px;
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font: 400 10px/1.5 DM Mono, monospace;
+      letter-spacing: .04em;
+    }
+    footer a { transition: color .2s; }
+    footer a:hover { color: var(--ink); }
+    @media (max-width: 760px) {
+      nav { min-height: 68px; }
+      main {
+        min-height: calc(100vh - 68px);
+        grid-template-columns: 1fr;
+        align-items: end;
+        padding-top: 260px;
+        padding-bottom: 126px;
+      }
+      .fan { top: -36vw; right: -35vw; width: 120vw; height: 118vw; }
+      h1 { font-size: clamp(50px, 16vw, 76px); }
+      .intro { font-size: 18px; }
+      .icon-wrap { display: none; }
+      footer { gap: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .fan { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav aria-label="Primary navigation">
+    <a class="brand" href="https://vivianlobo.com">Afterglow</a>
+    <span class="status">In development</span>
+  </nav>
+
+  <main>
+    <div class="fan" aria-hidden="true">
+      <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
+    </div>
+
+    <section class="copy" aria-labelledby="page-title">
+      <p class="eyebrow">A daily quotes app for iPhone</p>
+      <h1 id="page-title">Keep what stays with you.</h1>
+      <p class="intro">One quote each day. Like the ones that resonate, add a short note, and quietly build a collection worth returning to.</p>
+      <p class="detail">No feed. No reading history. Just today’s words, the thoughts you choose to keep, and a little space to reflect.</p>
+      <div class="coming-soon"><span aria-hidden="true"></span> Coming soon on the App Store</div>
+    </section>
+
+    <div class="icon-wrap">
+      <img src="./afterglow-icon.png" alt="Afterglow app icon: a fan of layered cards">
+      <p class="icon-label">Quotes &amp; notes</p>
+    </div>
+
+    <footer>
+      <a href="https://vivianlobo.com">← vivianlobo.com</a>
+      <a href="./privacy-policy/">Privacy policy</a>
+    </footer>
+  </main>
+</body>
+</html>
